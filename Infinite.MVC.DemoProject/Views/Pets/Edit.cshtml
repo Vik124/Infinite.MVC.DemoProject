@@ -1,0 +1,49 @@
+﻿@model  Infinite.MVC.DemoProject.Models.Pets
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2> Edit Pets</h2>
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary()
+    <div class="mb-2">
+        @Html.LabelFor(p => p.PetName, new { @class = "form-label" })
+        @Html.TextBoxFor(p => p.PetName, new { @class = "form-control" })
+        @Html.ValidationMessageFor(p => p.PetName)
+    </div>
+    <div class="mb-2">
+        @Html.LabelFor(p => p.Description, new { @class = "form-label" })
+        @Html.TextBoxFor(p => p.Description, new { @class = "form-control" })
+        @Html.ValidationMessageFor(p => p.Description)
+
+    </div>
+
+    <div class="mb-2">
+        @Html.LabelFor(p => p.Height, new { @class = "form-label" })
+        @Html.TextBoxFor(p => p.Height, new { @class = "form-control" })
+        @Html.ValidationMessageFor(p => p.Height)
+    </div>
+    <div class="mb-2">
+        @Html.LabelFor(p => p.Weight, new { @class = "form-label" })
+        @Html.TextBoxFor(p => p.Weight, new { @class = "form-control" })
+        @Html.ValidationMessageFor(p => p.Weight)
+    </div>
+    <div class="mb-2">
+        @Html.LabelFor(p => p.Age, new { @class = "form-label" })
+        @Html.TextBoxFor(p => p.Age, new { @class = "form-control" })
+        @Html.ValidationMessageFor(p => p.Age)
+    </div>
+    <div class="mb-3">
+        @Html.LabelFor(p => p.BreedsId, new { @class = "form-label" })
+        @Html.DropDownListFor(p => p.BreedsId, new SelectList(ViewBag.Breeds, "Id", "BreedName"), "--select---", new { @class = "form-select" })
+        @Html.ValidationMessageFor(p => p.BreedsId)
+    </div>
+    <div class="mt-2">
+        <input type="submit" id="btnSubmit" class="btn btn-primary" value="Update" />
+
+    </div>
+    <div class="col-md-3">
+        @Html.ActionLink("Back to Index", "Index", "Pets")
+    </div>
+}

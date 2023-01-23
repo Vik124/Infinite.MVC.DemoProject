@@ -1,0 +1,27 @@
+﻿@using Infinite.MVC.DemoProject.Models
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details of pets</h2>
+
+<div class="row">
+    <div class="col-md-3">
+        <ul class="list-group">
+            <li class="list-group-item"><b>Id :</b>@Model.Id</li>
+            <li class="list-group-item"><b>PetName :</b>@Model.PetName</li>
+            <li class="list-group-item"><b>Description :</b>@Model.Description</li>
+            @*<li class="list-group-item"><b>Breed:</b>@Model.Breed</li>*@
+            <li class="list-group-item"><b>Height:</b>@Model.Height</li>
+            <li class="list-group-item"><b>Weight :</b>@Model.Weight</li>
+            <li class="list-group-item"><b>Age:</b>@Model.Age</li>
+
+            <li class="list-group-item"><b>BreedsId:</b>@Model.Breeds.BreedName</li>
+        </ul>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-3">
+        @Html.ActionLink("Back to Index", "Index", "Pets")
+    </div>
+</div>

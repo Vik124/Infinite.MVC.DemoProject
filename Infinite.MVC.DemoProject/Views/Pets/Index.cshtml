@@ -1,0 +1,52 @@
+﻿@model List<Infinite.MVC.DemoProject.Models.Pets>
+@{
+    ViewBag.Title = "Index";
+}
+@section head {
+    <style type="text/css">
+        body {
+            background-image: url('../../images/golden-retriever-dog-21668976.jpg');
+            margin: 0;
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+    </style>
+}
+
+
+<h2 style="color:white;">List of pets</h2>
+@*@Html.ActionLink("Add New", "Create","Pets", null, new {@class="btn btn-info"})*@
+<div class="row">
+    <div class="col-md-4">
+        <table class="table table-hover">
+            <tr>
+                <th style="color:white;">
+                    Id
+                </th>
+                <th style="color:white;">
+                    Pet Name
+                </th>
+                <th style="color:white;">Action</th>
+                <th style="color:white;">
+                    Delete
+                </th>
+            </tr>
+            @foreach (var p1 in Model)
+            {
+                <tr>
+                    <td>@p1.Id</td>
+                    <td>@Html.ActionLink(p1.PetName, "Details", "Pets", new { id = p1.Id }, null)</td>
+
+                    <td>@Html.ActionLink("Edit", "Edit", "Pets", new { id = p1.Id }, new { @class = "btn btn-info" })</td>
+                    <td>
+                        @using (Html.BeginForm("Delete", "Pets", new { id = p1.Id }, FormMethod.Post))
+                        {
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                        }
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+</div>
+
